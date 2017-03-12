@@ -1,0 +1,6 @@
+---
+- name: set clients var for openvpn role
+  set_fact:
+    clients: "{{ hostvars[groups['ogn'][0]]['ansible_fqdn'] }}"
+    openvpn_server_hostname: "{{ ansible_fqdn }}"
+  when: hostvars[groups['ogn'][0]]['ansible_fqdn'] is defined
